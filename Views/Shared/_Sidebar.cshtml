@@ -1,0 +1,46 @@
+﻿
+    
+@{ 
+    string active = "active";
+}
+    <div class="sidebar" data-color="purple" data-background-color="black">
+        <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+        <div class="logo">
+            <a href="/home" class="simple-text logo-normal" style="text-transform: none;">
+                BARBER
+            </a>
+        </div>
+        <div class="sidebar-wrapper">
+            <ul class="nav">
+                <li class="nav-item @{ if (ViewBag.activePage ==  "dashboard") { @active } }">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">
+                        <i class="material-icons">dashboard</i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item @{ if (ViewBag.activePage == "user") { @active } } ">
+                    <a class="nav-link" href="@Url.Action("Index", "User")">
+                        <i class="material-icons">account_circle</i>
+                        <p>User Management</p>
+                    </a>
+                </li>
+                <li class="nav-item @{ if (ViewBag.activePage == "favbarber") { @active } } ">
+                    <a class="nav-link" href="@Url.Action("Index", "FavBarber")">
+                        <i class="material-icons">account_circle</i>
+                        <p>Favourite Management</p>
+                    </a>
+                </li>
+                <li class="nav-item @{ if (ViewBag.activePage == "book") { @active } } ">
+                    <a class="nav-link" href="@Url.Action("Index", "Book")">
+                        <i class="material-icons">account_circle</i>
+                        <p>Book Management</p>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>

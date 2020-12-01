@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top text-white">
+    <div class="container">
+    </div>
+</nav>
+<!-- End Navbar -->
+<div class="wrapper wrapper-full-page">
+    <div class="page-header login-page header-filter" filter-color="black" style="
+        background-image: url('../Theme/material/img/login.jpg');
+        background-size: cover;
+        background-position: top center;
+        align-items: center;" data-color="purple">
+        <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+        <div class="container" style="height: auto;">
+            <div class="row align-items-center">
+                <div class="col-md-9 ml-auto mr-auto mb-3 text-center">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+                    <form class="form" method="POST" action="/auth/login">
+                        @Html.AntiForgeryToken()
+                        <div class="card card-login card-hidden mb-3">
+                            <div class="card-header card-header-primary text-center">
+                                <h4 class="card-title"><strong>Login</strong></h4>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-description text-center">Sign in with <strong>your email</strong> and the password<strong>secret</strong> </p>
+                                <div class="bmd-form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">email</i>
+                                            </span>
+                                        </div>
+                                        <input type="email" name="email" class="form-control" placeholder="Email..." required>
+                                    </div>
+                                    @{
+                                        if (ViewBag.error != null)
+                                        {
+                                            <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
+                                                <strong>@ViewBag.error</strong>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <div class="bmd-form-group mt-3">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">
+                                                <i class="material-icons">lock_outline</i>
+                                            </span>
+                                        </div>
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password..." required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer justify-content-center">
+                                <button type="submit" class="btn btn-primary btn-link btn-lg">LOGIN</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+            </div>
+        </footer>
+    </div>
+</div>
